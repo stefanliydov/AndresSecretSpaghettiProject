@@ -28,7 +28,7 @@ public class Bird {
         yvel = 0;
         width = 45;
         height = 32;
-        gravity = 1.0;
+        gravity = 0.8;
         jumpDelay = 0;
         rotation = 0.0;
         dead = false;
@@ -56,7 +56,7 @@ public class Bird {
         r.y = y;
 
         if (image == null) {
-            image = Util.loadImage("src/main/java/lib/bird.png");
+            image = Util.loadImage("src/main/resources/lib/bird.png");
         }
         r.image = image;
 

@@ -1,0 +1,76 @@
+_Opera
+Le Nozze di Figaro
+Il Barbiere di Siviglia
+Lucia di Lammermoor
+Rigoletto
+La Traviata
+Pagliacci
+Madama Butterfly
+Turandot
+La Boheme
+Der Ring des Nibelungen
+Carmen
+Don Giovanni
+La gazza ladra
+Manon Lescaut
+Otello
+Tristan und Isolde
+Das Rheingold
+Aida
+Parsifal
+Tosca
+_Doctor Who Actors
+William Hartnell
+David Bradley
+Patrick Troughton
+Jon Pertwee
+Tom Baker
+Peter Davison
+Colin Baker
+Sylvester McCoy
+Paul McGann
+John Hurt
+Christopher Eccleston
+David Tennant
+Matt Smith
+Peter Capaldi
+Jodie Whittaker
+_Bible People
+Moses
+Jesus Christ
+King David
+King Solomon
+Abraham
+Sarah
+Isaac
+Jacob
+Abel
+Noah
+Adam
+Judah
+Samson
+Peter
+Goliath
+God
+Jehovah
+The Great Bobe
+_Pokemon
+Bulbasaur
+Charmander
+Pikachu
+Squirtle
+Ninetales
+Psyduck
+Diglett
+Growlithe
+Aerodactyl
+Snorlax
+Gyarados
+Magikarp
+Geodude
+Tentacool
+Meowth
+Jigglypuff
+Rattata
+Raichu Hristov
+Charizard

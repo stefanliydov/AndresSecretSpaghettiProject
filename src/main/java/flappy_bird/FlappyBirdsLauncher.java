@@ -1,6 +1,10 @@
 package flappy_bird;
 
 
+import andres_game.challenges.ChallengeCompletion;
+import andres_game.music.MusicPlayer;
+import andres_game.music.MusicTracks;
+
 import javax.swing.*;
 
 public class FlappyBirdsLauncher {
@@ -9,22 +13,22 @@ public class FlappyBirdsLauncher {
     public static int HEIGHT = 540;
 
     public static void main(String[] args) {
-        launch();
+        launch(new ChallengeCompletion());
     }
 
 
-    public static void launch() {
+    public static void launch(ChallengeCompletion challenges) {
         JFrame frame = new JFrame();
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(WIDTH, HEIGHT);
         frame.setLocationRelativeTo(null);
 
         Keyboard keyboard = Keyboard.getInstance();
         frame.addKeyListener(keyboard);
-
-        GamePanel panel = new GamePanel(frame);
+        GamePanel panel = new GamePanel(frame, challenges);
         frame.add(panel);
+        panel.run();
 
     }
 }

@@ -8,7 +8,7 @@ public class Pipe {
     public int y;
     public int width;
     public int height;
-    public int speed = 3;
+    public int speed = 2;
 
     public String orientation;
 
@@ -21,11 +21,11 @@ public class Pipe {
 
     public void reset() {
         width = 66;
-        height = 400;
+        height = 380;
         x = FlappyBirdsLauncher.WIDTH + 2;
 
         if (orientation.equals("south")) {
-            y = -(int)(Math.random() * 120) - height / 2;
+            y = -(int)(Math.random() * 160) - height / 2;
         }
     }
 
@@ -35,13 +35,13 @@ public class Pipe {
 
     public boolean collides(int _x, int _y, int _width, int _height) {
 
-        int margin = 2;
+        int margin = 1;
 
         if (_x + _width - margin > x && _x + margin < x + width) {
 
-            if (orientation.equals("south") && _y < y + height) {
+            if (orientation.equals("south") && _y < y + height+10) {
                 return true;
-            } else if (orientation.equals("north") && _y + _height > y) {
+            } else if (orientation.equals("north") && _y + _height > y+10) {
                 return true;
             }
         }
@@ -55,7 +55,7 @@ public class Pipe {
         r.y = y;
 
         if (image == null) {
-            image = Util.loadImage("src/main/java/lib/pipe-" + orientation + ".png");
+            image = Util.loadImage("src/main/resources/lib/pipe-" + orientation + ".png");
         }
         r.image = image;
 

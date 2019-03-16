@@ -1,5 +1,9 @@
 package flappy_bird;
 
+import andres_game.challenges.ChallengeCompletion;
+import andres_game.io.ConsoleIO;
+import andres_game.io.IO;
+
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
@@ -8,7 +12,8 @@ import java.util.ArrayList;
 public class Game {
 
     public static final int PIPE_DELAY = 100;
-    public static final int TARGET_HIGHSCORE = 100;
+    public static int TARGET_HIGHSCORE = 150;
+    private final IO io = new ConsoleIO(40,300);
     private Boolean paused;
 
     private int pauseDelay;
@@ -18,15 +23,17 @@ public class Game {
     private ArrayList<Pipe> pipes;
     private Keyboard keyboard;
     private JFrame frame;
+    private ChallengeCompletion challenges;
 
     public int highscore;
     public int score;
     public Boolean gameover;
     public Boolean started;
 
-    public Game(JFrame frame) {
+    public Game(JFrame frame, ChallengeCompletion challenges) {
         keyboard = Keyboard.getInstance();
         this.frame = frame;
+        this.challenges =challenges;
         restart();
     }
 
@@ -53,6 +60,7 @@ public class Game {
         watchForPause();
         watchForReset();
         watchForContinue();
+        watchForEsc();
 
         if (paused)
             return;
@@ -68,10 +76,10 @@ public class Game {
 
     public ArrayList<Render> getRenders() {
         ArrayList<Render> renders = new ArrayList<Render>();
-        renders.add(new Render(0, 0, "src/main/java/lib/background.png"));
+        renders.add(new Render(0, 0, "src/main/resources/lib/background.png"));
         for (Pipe pipe : pipes)
             renders.add(pipe.getRender());
-        renders.add(new Render(0, 0, "src/main/java/lib/foreground.png"));
+        renders.add(new Render(0, 0, "src/main/resources/lib/foreground.png"));
         renders.add(bird.getRender());
         return renders;
     }
@@ -107,10 +115,20 @@ public class Game {
         if (keyboard.isDown(KeyEvent.VK_ENTER)) {
 
             if (highscore >= TARGET_HIGHSCORE) {
+                this.challenges.bComplete();
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                io.animateLine("> Well done, Andres, your patience has been tested, you're worthy!");
+                io.animateLine("> Here is your digit, you deserved it!");
+                io.animateLine("> > > 7 < < <");
             }
         }
     }
+    private void watchForEsc(){
+        if( keyboard.isDown(KeyEvent.VK_ESCAPE)){
+            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+        }
+    }
+
 
     private void movePipes() {
         pipeDelay--;
@@ -148,7 +166,7 @@ public class Game {
                 southPipe.reset();
             }
 
-            northPipe.y = southPipe.y + southPipe.height + 175;
+            northPipe.y = southPipe.y + southPipe.height + 145;
         }
 
         for (Pipe pipe : pipes) {
@@ -179,4 +197,5 @@ public class Game {
             bird.y = FlappyBirdsLauncher.HEIGHT - 80 - bird.height;
         }
     }
+
 }

@@ -10,7 +10,7 @@ import static hangman.random_number_generator.RandomNumberGenerator.generate;
 
 
 public class FileWordLoader implements WordLoader {
-    private static final String FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "music/words.txt";
+    private static final String FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "words.txt";
     private final Map<String, List<String>> categoriesWords;
 
     public FileWordLoader() {
